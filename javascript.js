@@ -24,12 +24,12 @@ function playGame(){
 let humanScore = 0;
 let computerScore = 0;
 
-//Play round
+//Play one round
 //Rules: Rock beats scissors, scissors beat paper, and paper beats rock.
 // Create function for the round taking in human and computer selections.
 //Loop through the selections deteriming the winner
 //Console output the winner
-//Update the score for human or computer   
+//Update the score for human or computer.  
 
     function playRound(humanChoice, computerChoice){
         let text;
@@ -59,7 +59,7 @@ let computerScore = 0;
         //Tie
         }else if (humanChoice == computerChoice){
             text = "Tie. Play next round!";      
-             
+
         } else {text = "Someting Sent Wrong";
         }
         return text;
