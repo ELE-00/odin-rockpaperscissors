@@ -57,12 +57,9 @@ let computerScore = 0;
             computerScore = computerScore + 1;
 
         //Tie
-        }else if (humanChoice == "paper" & computerChoice == "paper"){
+        }else if (humanChoice == computerChoice){
             text = "Tie. Play next round!";      
-        }else if (humanChoice == "rock" & computerChoice == "rock"){
-            text = "Tie. Play next round!";      
-        }else if (humanChoice == "scissors" & computerChoice == "scissors"){
-            text = "Tie. Play next round!";      
+             
         } else {text = "Someting Sent Wrong";
         }
         return text;
