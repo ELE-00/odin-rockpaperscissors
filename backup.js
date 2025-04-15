@@ -1,5 +1,3 @@
-
-
 //Randomly generate rock, paper or scissors for the computer
 function getHumanChoice(){
     let humanResult = prompt("User choice", "").toLowerCase();
@@ -30,6 +28,7 @@ let computerScore = 0;
 //Rules: Rock beats scissors, scissors beat paper, and paper beats rock.
 // Create function for the round taking in human and computer selections.
 //Loop through the selections deteriming the winner
+//Console output the winner
 //Update the score for human or computer.  
 
     function playRound(humanChoice, computerChoice){
@@ -66,60 +65,65 @@ let computerScore = 0;
         return text;
     }
     
-
-//UI SECTION
-
-//Select the div container    
-const resultscontainer = document.querySelector("#container");
-
-// Create div to display result and scores
-const resultDisplay = document.createElement("div");
-const currentHumanScore = document.createElement("div");
-const currentComputerScore = document.createElement("div");
-const endgametext = document.createElement("h1");
-
-// Appending result and scores to container
-resultscontainer.appendChild(resultDisplay);
-resultscontainer.appendChild(currentHumanScore);
-resultscontainer.appendChild(currentComputerScore);
-resultscontainer.appendChild(endgametext);
+// Initiate a new game with 5 rounds  
+    //Round 1:
+    console.log("Round 1")
+    const R1computerSelection = getComputerChoice();
+    const R1humanSelection = getHumanChoice();
+    console.log("You:", R1humanSelection);
+    console.log("Computer:", R1computerSelection);
+    console.log(playRound(R1humanSelection, R1computerSelection));
+    console.log("Your Score:", humanScore, "Computer Score:", computerScore)
 
 
-//BUTTONS
+    //Round 2:
+    console.log("Round 2")
+    const R2computerSelection = getComputerChoice();
+    const R2humanSelection = getHumanChoice();
+    console.log("You:", R2humanSelection);
+    console.log("Computer:", R2computerSelection);
+    console.log(playRound(R2humanSelection, R2computerSelection));
+    console.log("Your Score:", humanScore, "Computer Score:", computerScore)
 
-//Select "Paper" button
+    //Round 3:
+    console.log("Round 3")
+    const R3computerSelection = getComputerChoice();
+    const R3humanSelection = getHumanChoice();
+    console.log("You:", R3humanSelection);
+    console.log("Computer:", R3computerSelection);
+    console.log(playRound(R3humanSelection, R3computerSelection));
+    console.log("Your Score:", humanScore, "Computer Score:", computerScore)
 
-const buttons = document.querySelectorAll(".btn");
-//Run playRound on button click
-    buttons.forEach(button => {
-        button.addEventListener("click", () => { 
-            const choice = button.dataset.choice; // get "rock", "paper", or "scissors"
-            let roundResult = playRound(choice, getComputerChoice())
+    //Round 4:
+    console.log("Round 4")
+    const R4computerSelection = getComputerChoice();
+    const R4humanSelection = getHumanChoice();
+    console.log("You:", R4humanSelection);
+    console.log("Computer:", R4computerSelection);
+    console.log(playRound(R4humanSelection, R4computerSelection));
+    console.log("Your Score:", humanScore, "Computer Score:", computerScore)
 
-            if (humanScore == 5){
-                endgametext.textContent =  "Computer WIN! Better luck next time!";
-                resultDisplay.textContent = " "
-                currentHumanScore.textContent = " "
-                currentComputerScore.textContent = " "
-                humanScore = 0;
-                computerScore = 0;
-            }else if (computerScore == 5){
-                endgametext.textContent = "You WIN!";
-                resultDisplay.textContent = " "
-                currentHumanScore.textContent = " "
-                currentComputerScore.textContent = " "
-                humanScore = 0;
-                computerScore = 0;
-            }else {
-                resultDisplay.textContent = "Result: " + roundResult;
-                currentHumanScore.textContent = "Human score: " + humanScore;
-                currentComputerScore.textContent = "Computer score: " + computerScore;
-            };
-        });
-    });
- 
+    //Round 5:
+    console.log("Round 5")
+    const R5computerSelection = getComputerChoice();
+    const R5humanSelection = getHumanChoice();
+    console.log("You:", R4humanSelection);
+    console.log("Computer:", R5computerSelection);
+    console.log(playRound(R5humanSelection, R5computerSelection));
+    console.log("Your Score:", humanScore, "Computer Score:", computerScore)
 
+    //End game output:
+    let endgametext;
+    if (humanScore > computerScore){
+        endgametext = "WOOHOO! YOU WON!";
+    }else if(humanScore < computerScore){
+        endgametext = "OOPSIE! YOU LOST";
+    }else {
+        endgametext= "IT'S A TIE!"
+    }
+    return endgametext;
 }
+
 console.log(playGame());
 
 
